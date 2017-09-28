@@ -18,6 +18,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -64,10 +65,21 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void delete() throws Exception {
+    public void deletePresent() throws Exception {
         final Employee john = new Employee("John", "Doe", LocalDate.now());
         john.setId(1L);
+
+        when(employeeRepository.findOne(john.getId())).thenReturn(john);
+
         employeeService.delete(john.getId());
         verify(employeeRepository).delete(john.getId());
+    }
+
+    @Test
+    public void deleteNotPresent() throws Exception {
+        when(employeeRepository.findOne(1L)).thenReturn(null);
+        employeeService.delete(1L);
+        verify(employeeRepository).findOne(1L);
+        verifyNoMoreInteractions(employeeRepository);
     }
 }

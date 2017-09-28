@@ -10,6 +10,6 @@ public class EmployeeDtoConverter extends AbstractConverter<Employee, EmployeeDt
 
     @Override
     public EmployeeDto convert(Employee source) {
-        return new EmployeeDto(source.getFirstName(), source.getLastName(), source.getDateOfBirth());
+        return new EmployeeDto(source.getId(), source.getFirstName(), source.getLastName(), source.getDateOfBirth());
     }
 }

@@ -8,17 +8,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public final class EmployeeDto {
 
+    private final Long id;
     private final String firstName;
     private final String lastName;
     private final LocalDate dateOfBirth;
 
     @JsonCreator
-    public EmployeeDto(@JsonProperty("firstName") String firstName,
+    public EmployeeDto(@JsonProperty("id") Long id,
+                       @JsonProperty("firstName") String firstName,
                        @JsonProperty("lastName") String lastName,
                        @JsonProperty("dateOfBirth") LocalDate dateOfBirth) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @JsonGetter("id")
+    public Long getId() {
+        return id;
     }
 
     @JsonGetter("firstName")

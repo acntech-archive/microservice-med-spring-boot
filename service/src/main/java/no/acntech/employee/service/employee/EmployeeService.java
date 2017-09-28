@@ -31,6 +31,10 @@ public class EmployeeService {
     }
 
     public void delete(Long id) {
-        employeeRepository.delete(id);
+        final Optional<Employee> employee = findById(id);
+
+        if (employee.isPresent()) {
+            employeeRepository.delete(id);
+        }
     }
 }

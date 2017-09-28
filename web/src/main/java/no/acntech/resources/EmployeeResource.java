@@ -89,10 +89,6 @@ public class EmployeeResource {
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void delete(@PathVariable final Long id) {
-        final Optional<Employee> employee = employeeService.findById(id);
-
-        if (employee.isPresent()) {
-            employeeService.delete(employee.get().getId());
-        }
+        employeeService.delete(id);
     }
 }

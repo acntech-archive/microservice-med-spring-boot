@@ -1,5 +1,6 @@
 package no.acntech.employee.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +15,17 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "FIRSTNAME")
     private String firstName;
+
+    @Column(name = "LASTNAME")
     private String lastName;
+
+    @Column(name = "BIRTHDATE")
     private LocalDate dateOfBirth;
 
     public Employee() {
+        // Hibernate
     }
 
     public Employee(String firstName, String lastName, LocalDate dateOfBirth) {
