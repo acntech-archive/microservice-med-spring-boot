@@ -1,0 +1,30 @@
+# Created by https://www.gitignore.io
+
+### Java ###
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+### Intellij ###
+*.iml
+.idea/
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+out/
+.idea_modules/
+
+# JIRA plugi
+
+# Maven
+target/
