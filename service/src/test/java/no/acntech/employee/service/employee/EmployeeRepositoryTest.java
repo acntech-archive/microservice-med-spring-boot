@@ -1,4 +1,4 @@
-package no.acntech.employee.service;
+package no.acntech.employee.service.employee;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import no.acntech.employee.domain.Employee;
-import no.acntech.employee.service.employee.EmployeeRepository;
+import no.acntech.employee.service.EmployeeDatabaseConfig;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
