@@ -19,13 +19,9 @@ endpoints:
   enabled: false
   health:
     enabled: true
-  info:
-    enabled: true
   env:
     enabled: true
   beans:
-    enabled: true
-  autoconfig:
     enabled: true
   configprops:
     enabled: true
