@@ -107,6 +107,7 @@ I vår eksempel-applikasjon har vi eksponert følgende endepunkter:
 /management/loggers (Vise og oppdatere logg-konfigurasjon)
 ```
 Actuator blir konfigurert i application.yml. De forskjellige endepunktene kan aktiveres og deaktiveres ved å sette `enabled`-flagget til `true` eller `false`.
+
 ---
 
 ## Logging
@@ -120,17 +121,19 @@ Denne id’en er unik per request og kommer med i alle logginnslag relatert til 
 
 I tillegg til logging av korrelasjons-id har vi også lagt til logging av alle innkommende requester 
 og responsetider.
+
 ---
 
-#### Dokumentasjon
+## Dokumentasjon
 REST-endepunktene i applikasjonen dokumenteres ved bruk av [swagger](https://swagger.io/introducing-the-open-api-initiative/).
 Endepunktene annoteres med [swagger-annoteringer](http://docs.swagger.io/swagger-core/v1.5.0/apidocs/io/swagger/annotations/package-summary.html).
 
 Når applikasjonen bygges genereres det en swagger.json fil i target-folderen til web-modulen.
 Denne kan lastes inn i feks [swagger-ui](https://swagger.io/swagger-ui/) for å visualisere grensesnittene.  
+
 ---
 
-#### Kodekvalitet og testdekning
+## Kodekvalitet og testdekning
 Kodekvalitet og testdekning er viktige metrikker for å måle kvaliteten på kodebasen. 
 Vi har lagt til JaCoCo-plugin for måling av testdekning.
  
@@ -144,9 +147,10 @@ Hvis man ikke har en kjørende instans av SonarQube kan man starte opp SonarQube
 ```
 docker run --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 ```
+
 ---
 
-#### Infrastruktur og cloud
+## Infrastruktur og cloud
 Applikasjonen er utformet på en måte som gjør den agnostisk ift kjøretidsmijø.
 Dette oppnår man ved å følge prinsippene for [the 12 factor app](https://12factor.net/).
 
