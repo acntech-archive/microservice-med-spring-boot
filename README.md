@@ -1,11 +1,11 @@
-#Mikrotjenester med Spring Boot
+# Mikrotjenester med Spring Boot
 Denne applikasjonen demonstrerer hvordan man effektivt kan komme i gang med utvikling av mikrotjenester ved bruk av Java og Spring Boot. 
 Applikasjonen omfatter et fiktivt og begrenset domene. 
 
 Formålet er å vise hvordan man kan bygge mikrotjenester med en 
 skalèrbar arkitektur med tanke på modularisering, konfigurasjon, monitorering, kodekvalitet, etc.
 
-##Teknologi og rammeverk
+## Teknologi og rammeverk
 Viktigste teknologier og rammeverk som benyttes i applikasjonen:
 - [Java](https://www.java.com/en/)
 - [Spring Boot](https://projects.spring.io/spring-boot/)
@@ -18,7 +18,7 @@ Viktigste teknologier og rammeverk som benyttes i applikasjonen:
 - [Maven](https://maven.apache.org/)
 ---
 
-##Modularisering
+## Modularisering
 Applikasjonen består av følgende moduler:
 - **web** - eksponerte REST-endepunkter og DTO’er
 - **service** - tjenester med forretningslogikk som opererer på domenemodellen
@@ -29,7 +29,7 @@ og dette må tilpasses hvert use-case.
 Vi har valgt å bruke en forenklet versjon av ["onion pattern"](https://www.java.com/en/) som utgangspunkt.
 ---
 
-##Bygg og test
+## Bygg og test
 Applikasjonen bygges med maven. For å bygge med enhetstester: 
 ```
 mvn clean install
@@ -46,21 +46,21 @@ mvn clean install failsafe:integration-test failsafe:verify
 ```
 ---
 
-##Kjøre applikasjonen
+## Kjøre applikasjonen
 Applikasjonen pakkes som en war-fil og kan kjøres på flere ulike måter.
 
-#####Embedded Tomcat 
+##### Embedded Tomcat 
 For å starte applikasjonen på en embedded tomcat-server kan man kjøre 
 følgende java-kommando i target-folderen til web-modulen: 
 ```
 java -jar employee-service.war
 ``` 
 
-#####Standalone servlet-container
+##### Standalone servlet-container
 Det er også mulig å deploye war-filen direkte til en hvilken som helst servlet-container 
 som feks Tomcat eller Jetty på vanlig måte
 
-#####Docker
+##### Docker
 Et tredje alternativ er å starte applikasjonen i en Docker-container. 
 Vi har lagt ved et utgangspunkt for en Dockerfile. 
 Kjør følgende kommandoer for å bygge og starte applikasjonen i docker:
@@ -70,7 +70,7 @@ docker run -p 8080:8080 acntech/employee-service:latest
 ```
 ---
 
-##Konfigurasjon
+## Konfigurasjon
 Spring Boot er et "opinionated" rammeverk som følger en rekke konvensjoner ift hvordan applikasjonen konfigureres. 
 
 All konfigurasjon som rammeverket gjør kan overstyres. [Her](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) 
@@ -110,7 +110,7 @@ I vår eksempel-applikasjon har vi eksponert følgende endepunkter:
 Actuator blir konfigurert i application.yml. De forskjellige endepunktene kan aktiveres og deaktiveres ved å sette `enabled`-flagget til `true` eller `false`.
 ---
 
-##Logging
+## Logging
 Logging gjøres ved bruk av [SLF4J](https://www.slf4j.org/) og [Logback](https://logback.qos.ch/). 
 Vi har lagt ved et enkelt eksempel på logback-konfigurasjon i logback.xml-filen som kan utvides etter behov.
 
@@ -124,7 +124,7 @@ I tillegg til logging av korrelasjons-id har vi også lagt til logging av alle i
 og responsetider.
 ---
 
-####Dokumentasjon
+#### Dokumentasjon
 REST-endepunktene i applikasjonen dokumenteres ved bruk av [swagger](https://swagger.io/introducing-the-open-api-initiative/).
 Endepunktene annoteres med [swagger-annoteringer](http://docs.swagger.io/swagger-core/v1.5.0/apidocs/io/swagger/annotations/package-summary.html).
 
@@ -132,7 +132,7 @@ Når applikasjonen bygges genereres det en swagger.json fil i target-folderen ti
 Denne kan lastes inn i feks [swagger-ui](https://swagger.io/swagger-ui/) for å visualisere grensesnittene.  
 ---
 
-####Kodekvalitet og testdekning
+#### Kodekvalitet og testdekning
 Kodekvalitet og testdekning er viktige metrikker for å måle kvaliteten på kodebasen. 
 Vi har lagt til JaCoCo-plugin for måling av testdekning.
  
@@ -148,7 +148,7 @@ docker run --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 ```
 ---
 
-####Infrastruktur og cloud
+#### Infrastruktur og cloud
 Applikasjonen er utformet på en måte som gjør den agnostisk ift kjøretidsmijø.
 Dette oppnår man ved å følge prinsippene for [the 12 factor app](https://12factor.net/).
 
