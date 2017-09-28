@@ -24,9 +24,10 @@ Applikasjonen består av følgende moduler:
 - **service** - tjenester med forretningslogikk som opererer på domenemodellen
 - **domain** - intern domenemodell
 
-Det finnes mange ulike strategier og patterns for modularisering 
-og dette må tilpasses hvert use-case. 
-Vi har valgt å bruke en forenklet versjon av ["onion pattern"](https://www.java.com/en/) som utgangspunkt.
+Det finnes mange ulike strategier og patterns for modularisering og dette må tilpasses hvert use-case. 
+Vi har valgt å bruke en forenklet versjon av [onion pattern](https://www.infoq.com/news/2014/10/ddd-onion-architecture) som utgangspunkt.
+
+
 ---
 
 ## Bygg og test
