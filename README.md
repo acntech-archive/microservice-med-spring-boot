@@ -36,7 +36,6 @@ Applikasjonen bygges med maven. For å bygge med enhetstester:
 mvn clean install
 ```
 
-
 Integrasjonstester kjøres med maven failsafe-plugin. 
 Integrasjonstester starter opp applikasjonen på en embedded Tomcat-server med en tom H2-database 
 og kjører faktiske HTTP-requester mot applikasjonen. 
@@ -83,9 +82,9 @@ sende inn jvm-parametere når man starter applikasjonen på følgende måte:
 ```
 java -jar -Dserver.port=9999 employee-service.war
 ``` 
-
 Vi har også svært god erfaring med å bruke [Spring Cloud Config Server](https://spring.io/guides/gs/centralized-configuration/) 
 for å håndtere konfigurasjon.
+
 ---
 
 ## Monitorering
@@ -98,7 +97,7 @@ Hvilke endepunkter man ønsker å eksponere kan styres ved standard konfigurasjo
 som kan eksponeres.
 
 I vår eksempel-applikasjon har vi eksponert følgende endepunkter:
-````
+```
 /management/health (Helsesjekk)
 /management/env (Miljøinformasjon)
 /management/beans (Oversikt over hvilke bønner som er lastet)
@@ -106,15 +105,13 @@ I vår eksempel-applikasjon har vi eksponert følgende endepunkter:
 /management/metrics (Viser diverse `metrics`)
 /management/trace (Viser trace-informasjon om HTTP-kall)
 /management/loggers (Vise og oppdatere logg-konfigurasjon)
-````
-
+```
 Actuator blir konfigurert i application.yml. De forskjellige endepunktene kan aktiveres og deaktiveres ved å sette `enabled`-flagget til `true` eller `false`.
 ---
 
 ## Logging
 Logging gjøres ved bruk av [SLF4J](https://www.slf4j.org/) og [Logback](https://logback.qos.ch/). 
 Vi har lagt ved et enkelt eksempel på logback-konfigurasjon i logback.xml-filen som kan utvides etter behov.
-
 
 Når man utvikler en distribuert arkitektur med mikrotjenester er det viktig å kunne spore kall på tvers av tjenestene. 
 I applikasjonen har vi lagt til et filter som tar inn en HTTP-header kalt `x-correlation-id`. 
