@@ -31,7 +31,7 @@ public class EmployeeResourceIT {
 
     @Test
     public void testEmployeResourceOperations() {
-        final EmployeeDto employee = new EmployeeDto("Jon", "Doe", LocalDate.now());
+        final EmployeeDto employee = new EmployeeDto(1L, "Jon", "Doe", LocalDate.now());
 
         // create employee
         final URI uriToCreatedEmployee = restTemplate.postForLocation(URI, employee);

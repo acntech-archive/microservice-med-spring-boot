@@ -10,5 +10,30 @@ spring:
     serialization:
      write-dates-as-timestamps: false
 
+management:
+  context-path: /management
+  security:
+    enabled: false
 
-
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+  info:
+    enabled: true
+  env:
+    enabled: true
+  beans:
+    enabled: true
+  autoconfig:
+    enabled: true
+  configprops:
+    enabled: true
+  dump:
+    enabled: true
+  metrics:
+    enabled: true
+  trace:
+    enabled: true
+  loggers:
+    enabled: true
