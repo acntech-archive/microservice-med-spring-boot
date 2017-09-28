@@ -8,7 +8,7 @@ import org.springframework.web.filter.AbstractRequestLoggingFilter;
 
 public class RequestLoggingFilter extends AbstractRequestLoggingFilter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RequestLoggingFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RequestLoggingFilter.class); // NOSONAR
 
     @Override
     protected void beforeRequest(HttpServletRequest request, String message) {
@@ -17,7 +17,7 @@ public class RequestLoggingFilter extends AbstractRequestLoggingFilter {
 
     @Override
     protected void afterRequest(HttpServletRequest request, String message) {
-
+        // NOSONAR
     }
 
     @Override
