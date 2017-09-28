@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>time=%d{yyyy-MM-dd HH:mm:ss} thread=[%thread] %-5level %logger{36} message=%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CORRELATION_ID_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>time=%d{yyyy-MM-dd HH:mm:ss} thread=[%thread] %-5level %logger{36} corr_id="%X{CORR_ID_ATTR}" message=%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="no.acntech" level="DEBUG" additivity="false">
+        <appender-ref ref="CORRELATION_ID_APPENDER"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
