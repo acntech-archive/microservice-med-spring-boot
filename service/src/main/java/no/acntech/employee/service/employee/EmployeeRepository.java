@@ -1,9 +1,9 @@
 package no.acntech.employee.service.employee;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import no.acntech.employee.domain.Employee;
 
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
 }
