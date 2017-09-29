@@ -69,6 +69,16 @@ docker run -p 8080:8080 acntech/employee-service:latest
 ```
 ---
 
+## Infrastruktur og cloud
+Applikasjonen er utformet på en måte som gjør den agnostisk med tanke på kjøretidsmiljø. Dette oppnår man blant annet ved å følge prinsippene for [the 12 factor app](https://12factor.net/) og [cloud native](http://shop.oreilly.com/product/0636920038252.do).
+
+Fordelene med dette er at man får full fleksibilitet ift hvor man ønsker å deploye applikasjon. Eksempler på mulige kjøretidsmiljøer:
+- [Heroku](https://www.heroku.com/) på en embedded tomcat-server
+- [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) i en docker-container
+- Eksisterende applikasjonsservere som en war-fil
+
+---
+
 ## Konfigurasjon
 Spring Boot er et "opinionated" rammeverk som følger en rekke konvensjoner ift hvordan applikasjonen konfigureres. 
 
@@ -124,7 +134,6 @@ API'et kan dermed visualiseres i verktøy som feks [swagger-ui](https://swagger.
 
 <img src="https://i.imgur.com/yHtl1xD.png" width="30%" height="30%">
 
-
 ---
 
 ## Kodekvalitet og testdekning
@@ -143,13 +152,3 @@ docker run --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 <img src="https://i.imgur.com/6qjo8Tb.png" width="50%" height="50%">
 
 ---
-
-## Infrastruktur og cloud
-Applikasjonen er utformet på en måte som gjør den agnostisk ift kjøretidsmijø.
-Dette oppnår man blant annet ved å følge prinsippene for [the 12 factor app](https://12factor.net/).
-
-Dette gjør at man full fleksibilitet ift hvor man ønsker å deploye applikasjon. 
-Eksempler på mulige kjøretidsmiljøer:
-- [Heroku](https://www.heroku.com/) på en embedded tomcat-server
-- [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) i en docker-container
-- Eksisterende applikasjonsservere som en war-fil
