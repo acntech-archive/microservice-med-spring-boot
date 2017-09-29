@@ -47,6 +47,21 @@ For continuous integration bygges applikasjonen på  [Travis.](https://travis-ci
 
 ---
 
+## Konfigurasjon
+Spring Boot er et "opinionated" rammeverk som følger en rekke konvensjoner ift hvordan applikasjonen konfigureres. 
+
+All konfigurasjon som rammeverket gjør kan overstyres. [Her](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) er en gjennomgang av ulike mekanismer for konfigurasjon.
+
+All konfigurasjon i applikasjonen ligger i application.yml filen. For å enkelt overstyre denne konfigurasjonen kan man sende inn jvm-parametere når man starter applikasjonen på følgende måte:
+```
+java -jar -Dserver.port=9999 employee-service.war
+```
+
+[Spring Cloud Config Server](https://spring.io/guides/gs/centralized-configuration/) 
+er også et veldig bra alternativ for å håndtere konfigurasjon.
+
+---
+
 ## Kjøre applikasjonen
 Applikasjonen pakkes som en war-fil og kan kjøres på flere ulike måter.
 
@@ -67,6 +82,7 @@ For å bygge og starte applikasjonen i Docker:
 docker build -t "acntech/employee-service:latest" .
 docker run -p 8080:8080 acntech/employee-service:latest
 ```
+
 ---
 
 ## Infrastruktur og cloud
@@ -76,21 +92,6 @@ Fordelene med dette er at man får full fleksibilitet ift hvor man ønsker å de
 - [Heroku](https://www.heroku.com/) på en embedded tomcat-server
 - [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) i en docker-container
 - Eksisterende applikasjonsservere som en war-fil
-
----
-
-## Konfigurasjon
-Spring Boot er et "opinionated" rammeverk som følger en rekke konvensjoner ift hvordan applikasjonen konfigureres. 
-
-All konfigurasjon som rammeverket gjør kan overstyres. [Her](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) er en gjennomgang av ulike mekanismer for konfigurasjon.
-
-All konfigurasjon i applikasjonen ligger i application.yml filen. For å enkelt overstyre denne konfigurasjonen kan man sende inn jvm-parametere når man starter applikasjonen på følgende måte:
-```
-java -jar -Dserver.port=9999 employee-service.war
-```
-
-[Spring Cloud Config Server](https://spring.io/guides/gs/centralized-configuration/) 
-er også et veldig bra alternativ for å håndtere konfigurasjon.
 
 ---
 
