@@ -136,7 +136,7 @@ SonarQube kan startes i Docker med følgende kommando:
 ```
 docker run --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 ```
-<img src="https://i.imgur.com/6qjo8Tb.png" width="75%" height="75%">
+<img src="https://i.imgur.com/6qjo8Tb.png" width="50%" height="50%">
 
 ---
 
