@@ -48,6 +48,7 @@ For continuous integration bygges applikasjonen på  [Travis.](https://travis-ci
 
 
 Flyway benyttes for databaseversjonering.
+
 ---
 
 ## Konfigurasjon
