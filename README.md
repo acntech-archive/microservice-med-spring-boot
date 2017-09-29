@@ -159,3 +159,6 @@ Eksempler på mulige kjøretidsmiljøer:
 - [Heroku](https://www.heroku.com/) på en embedded tomcat-server
 - [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) i en docker-container
 - Eksisterende applikasjonsservere som en war-fil
+
+## Byggstatus
+[![Build Status](https://travis-ci.org/acntech/microservice-med-spring-boot.svg?branch=master)](https://travis-ci.org/acntech/microservice-med-spring-boot)
