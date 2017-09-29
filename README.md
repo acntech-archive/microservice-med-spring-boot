@@ -153,3 +153,5 @@ docker run --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 <img src="https://i.imgur.com/6qjo8Tb.png" width="50%" height="50%">
 
 ---
+
+For innspill eller spørsmål, ta gjerne kontakt med oss på fredrik.bjornoy@accenture.com eller jorgen.ringen@accenture.com.
