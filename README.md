@@ -5,6 +5,10 @@ Applikasjonen omfatter et fiktivt og begrenset domene.
 Formålet er å vise hvordan man kan bygge mikrotjenester med en 
 skalèrbar arkitektur med tanke på modularisering, konfigurasjon, monitorering, kodekvalitet, etc.
 
+## Byggstatus
+[![Build Status](https://travis-ci.org/acntech/microservice-med-spring-boot.svg?branch=master)](https://travis-ci.org/acntech/microservice-med-spring-boot)
+
+
 ## Teknologi og rammeverk
 Viktigste teknologier og rammeverk som benyttes i applikasjonen:
 - [Java](https://www.java.com/en/)
@@ -159,6 +163,3 @@ Eksempler på mulige kjøretidsmiljøer:
 - [Heroku](https://www.heroku.com/) på en embedded tomcat-server
 - [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) i en docker-container
 - Eksisterende applikasjonsservere som en war-fil
-
-## Byggstatus
-[![Build Status](https://travis-ci.org/acntech/microservice-med-spring-boot.svg?branch=master)](https://travis-ci.org/acntech/microservice-med-spring-boot)
