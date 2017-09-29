@@ -70,13 +70,13 @@
                             <schemes>
                                 <scheme>http</scheme>
                             </schemes>
-                            <host>localhost</host>
+                            <host>localhost:8080</host>
                             <basePath>/</basePath>
                             <info>
                                 <title>Employee Microservice</title>
                                 <version>v1</version>
                             </info>
-                            <swaggerDirectory>${project.build.directory}/${project.build.finalName}</swaggerDirectory>
+                            <swaggerDirectory>${project.build.directory}</swaggerDirectory>
                         </apiSource>
                     </apiSources>
                 </configuration>
