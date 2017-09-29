@@ -42,7 +42,27 @@ For å bygge med integrasjonstester:
 ```
 mvn clean install failsafe:integration-test failsafe:verify
 ```
+For continuous integration bygges applikasjonen på  [Travis.](https://travis-ci.org/)
+
+[![Build Status](https://travis-ci.org/acntech/microservice-med-spring-boot.svg?branch=master)](https://travis-ci.org/acntech/microservice-med-spring-boot)
+
+
 Flyway benyttes for databaseversjonering.
+---
+
+## Konfigurasjon
+Spring Boot er et "opinionated" rammeverk som følger en rekke konvensjoner ift hvordan applikasjonen konfigureres. 
+
+All konfigurasjon som rammeverket gjør kan overstyres. [Her](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) er en gjennomgang av ulike mekanismer for konfigurasjon.
+
+All konfigurasjon i applikasjonen ligger i application.yml filen. For å enkelt overstyre denne konfigurasjonen kan man sende inn jvm-parametere når man starter applikasjonen på følgende måte:
+```
+java -jar -Dserver.port=9999 employee-service.war
+```
+
+[Spring Cloud Config Server](https://spring.io/guides/gs/centralized-configuration/) 
+er også et veldig bra alternativ for å håndtere konfigurasjon.
+
 ---
 
 ## Kjøre applikasjonen
@@ -65,20 +85,16 @@ For å bygge og starte applikasjonen i Docker:
 docker build -t "acntech/employee-service:latest" .
 docker run -p 8080:8080 acntech/employee-service:latest
 ```
+
 ---
 
-## Konfigurasjon
-Spring Boot er et "opinionated" rammeverk som følger en rekke konvensjoner ift hvordan applikasjonen konfigureres. 
+## Infrastruktur og cloud
+Applikasjonen er utformet på en måte som gjør den agnostisk med tanke på kjøretidsmiljø. Dette oppnår man blant annet ved å følge prinsippene for [the 12 factor app](https://12factor.net/) og [cloud native](http://shop.oreilly.com/product/0636920038252.do).
 
-All konfigurasjon som rammeverket gjør kan overstyres. [Her](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) er en gjennomgang av ulike mekanismer for konfigurasjon.
-
-All konfigurasjon i applikasjonen ligger i application.yml filen. For å enkelt overstyre denne konfigurasjonen kan man sende inn jvm-parametere når man starter applikasjonen på følgende måte:
-```
-java -jar -Dserver.port=9999 employee-service.war
-```
-
-[Spring Cloud Config Server](https://spring.io/guides/gs/centralized-configuration/) 
-er også et veldig bra alternativ for å håndtere konfigurasjon.
+Fordelene med dette er at man får full fleksibilitet ift hvor man ønsker å deploye applikasjon. Eksempler på mulige kjøretidsmiljøer:
+- [Heroku](https://www.heroku.com/) på en embedded tomcat-server
+- [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) i en docker-container
+- Eksisterende applikasjonsservere som en war-fil
 
 ---
 
@@ -122,7 +138,6 @@ API'et kan dermed visualiseres i verktøy som feks [swagger-ui](https://swagger.
 
 <img src="https://i.imgur.com/yHtl1xD.png" width="30%" height="30%">
 
-
 ---
 
 ## Kodekvalitet og testdekning
@@ -142,12 +157,4 @@ docker run --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 
 ---
 
-## Infrastruktur og cloud
-Applikasjonen er utformet på en måte som gjør den agnostisk ift kjøretidsmijø.
-Dette oppnår man blant annet ved å følge prinsippene for [the 12 factor app](https://12factor.net/).
-
-Dette gjør at man full fleksibilitet ift hvor man ønsker å deploye applikasjon. 
-Eksempler på mulige kjøretidsmiljøer:
-- [Heroku](https://www.heroku.com/) på en embedded tomcat-server
-- [Amazon EC2 Container Service](https://aws.amazon.com/ecs/) i en docker-container
-- Eksisterende applikasjonsservere som en war-fil
+For innspill eller spørsmål, ta gjerne kontakt med oss på fredrik.bjornoy@accenture.com eller jorgen.ringen@accenture.com.
