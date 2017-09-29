@@ -16,6 +16,7 @@ Viktigste teknologier og rammeverk som benyttes i applikasjonen:
 - [JUnit](junit.org)
 - [Mockito](http://site.mockito.org/)
 - [Maven](https://maven.apache.org/)
+- [Flyway](https://flywaydb.org/)
 ---
 
 ## Modularisering
@@ -41,6 +42,7 @@ For å bygge med integrasjonstester:
 ```
 mvn clean install failsafe:integration-test failsafe:verify
 ```
+Flyway benyttes for databaseversjonering.
 ---
 
 ## Kjøre applikasjonen

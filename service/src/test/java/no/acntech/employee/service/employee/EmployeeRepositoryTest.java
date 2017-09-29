@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
@@ -24,6 +26,7 @@ import static org.junit.Assert.assertThat;
 @EnableAutoConfiguration
 @RunWith(SpringRunner.class)
 @Import({EmployeeDatabaseConfig.class})
+@ImportAutoConfiguration(FlywayAutoConfiguration.class)
 @ContextConfiguration(classes = EmployeeRepository.class)
 public class EmployeeRepositoryTest {
 
