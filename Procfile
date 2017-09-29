@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar --port $PORT -Dserver.port=$PORT web/target/employee-service.war
+web: java -Dserver.port=$PORT -jar web/target/employee-service.war
