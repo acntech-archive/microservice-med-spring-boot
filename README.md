@@ -43,7 +43,8 @@ mvn clean install failsafe:integration-test failsafe:verify
 ```
 ---
 
-For continuous integration bygges applikasjonen på  [Travis](https://travis-ci.org/): 
+For continuous integration bygges applikasjonen på  [Travis.](https://travis-ci.org/)
+
 [![Build Status](https://travis-ci.org/acntech/microservice-med-spring-boot.svg?branch=master)](https://travis-ci.org/acntech/microservice-med-spring-boot)
 
 
