@@ -12,11 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import no.acntech.employee.domain.Employee;
 
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -36,9 +32,9 @@ public class EmployeeServiceTest {
         when(employeeRepository.findOne(1L)).thenReturn(john);
         final Employee foundEmployee = employeeService.findById(1L).get();
 
-        assertThat(foundEmployee.getFirstName(), is(equalTo(john.getFirstName())));
-        assertThat(foundEmployee.getLastName(), is(equalTo(john.getLastName())));
-        assertThat(foundEmployee.getDateOfBirth(), is(equalTo(john.getDateOfBirth())));
+        assertThat(foundEmployee.getFirstName()).isEqualTo(john.getFirstName());
+        assertThat(foundEmployee.getLastName()).isEqualTo(john.getLastName());
+        assertThat(foundEmployee.getDateOfBirth()).isEqualTo(john.getDateOfBirth());
     }
 
     @Test
@@ -49,8 +45,9 @@ public class EmployeeServiceTest {
         when(employeeRepository.findAll()).thenReturn(Arrays.asList(john, jane));
 
         final List<Employee> allEmployees = employeeService.findAll();
-        assertThat(allEmployees, hasSize(2));
-        assertThat(allEmployees, containsInAnyOrder(john, jane));
+
+        assertThat(allEmployees).hasSize(2);
+        assertThat(allEmployees).contains(john, jane);
     }
 
     @Test
@@ -59,9 +56,10 @@ public class EmployeeServiceTest {
         when(employeeRepository.save(john)).thenReturn(john);
 
         final Employee savedJohn = employeeService.save(john);
-        assertThat(savedJohn.getFirstName(), is(equalTo(john.getFirstName())));
-        assertThat(savedJohn.getLastName(), is(equalTo(john.getLastName())));
-        assertThat(savedJohn.getDateOfBirth(), is(equalTo(john.getDateOfBirth())));
+
+        assertThat(savedJohn.getFirstName()).isEqualTo(john.getFirstName());
+        assertThat(savedJohn.getLastName()).isEqualTo(john.getLastName());
+        assertThat(savedJohn.getDateOfBirth()).isEqualTo(john.getDateOfBirth());
     }
 
     @Test

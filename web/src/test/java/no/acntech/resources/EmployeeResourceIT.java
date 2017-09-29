@@ -12,11 +12,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.arrayWithSize;
-import static org.hamcrest.Matchers.emptyArray;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.OK;
 
 @RunWith(SpringRunner.class)
@@ -35,27 +31,27 @@ public class EmployeeResourceIT {
 
         // create employee
         final URI uriToCreatedEmployee = restTemplate.postForLocation(URI, employee);
-        assertThat(uriToCreatedEmployee, notNullValue());
+        assertThat(uriToCreatedEmployee).isNotNull();
 
         // get employee
         final ResponseEntity<EmployeeDto> createdEmployeeResponse = restTemplate.getForEntity(uriToCreatedEmployee, EmployeeDto.class);
         final EmployeeDto createdEmployee = createdEmployeeResponse.getBody();
-        assertThat(createdEmployeeResponse.getStatusCode(), is(OK));
-        assertThat(createdEmployee.getFirstName(), is(employee.getFirstName()));
-        assertThat(createdEmployee.getLastName(), is(employee.getLastName()));
-        assertThat(createdEmployee.getDateOfBirth(), is(employee.getDateOfBirth()));
+        assertThat(createdEmployeeResponse.getStatusCode()).isEqualTo(OK);
+        assertThat(createdEmployee.getFirstName()).isEqualTo(employee.getFirstName());
+        assertThat(createdEmployee.getLastName()).isEqualTo(employee.getLastName());
+        assertThat(createdEmployee.getDateOfBirth()).isEqualTo(employee.getDateOfBirth());
 
         // get all employees
         ResponseEntity<EmployeeDto[]> allEmployeesRespone = restTemplate.getForEntity(URI, EmployeeDto[].class);
-        assertThat(allEmployeesRespone.getStatusCode(), is(OK));
-        assertThat(allEmployeesRespone.getBody(), arrayWithSize(1));
+        assertThat(allEmployeesRespone.getStatusCode()).isEqualTo(OK);
+        assertThat(allEmployeesRespone.getBody()).hasSize(1);
 
         // delete employee
         restTemplate.delete(uriToCreatedEmployee);
 
         // get all employees after delete
         allEmployeesRespone = restTemplate.getForEntity(URI, EmployeeDto[].class);
-        assertThat(allEmployeesRespone.getStatusCode(), is(OK));
-        assertThat(allEmployeesRespone.getBody(), emptyArray());
+        assertThat(allEmployeesRespone.getStatusCode()).isEqualTo(OK);
+        assertThat(allEmployeesRespone.getBody()).isEmpty();
     }
 }

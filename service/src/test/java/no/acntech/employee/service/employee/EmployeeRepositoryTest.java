@@ -17,10 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import no.acntech.employee.domain.Employee;
 import no.acntech.employee.service.EmployeeDatabaseConfig;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @EnableAutoConfiguration
@@ -38,9 +35,9 @@ public class EmployeeRepositoryTest {
         final Employee employee = new Employee("John", "Doe", LocalDate.of(1986, Month.MAY, 31));
         final Employee savedEmployee = repository.save(employee);
 
-        assertThat(savedEmployee.getId(), is(notNullValue()));
-        assertThat(savedEmployee.getFirstName(), is(equalTo(employee.getFirstName())));
-        assertThat(savedEmployee.getLastName(), is(equalTo(employee.getLastName())));
-        assertThat(savedEmployee.getDateOfBirth(), is(equalTo(employee.getDateOfBirth())));
+        assertThat(savedEmployee.getId()).isNotNull();
+        assertThat(savedEmployee.getFirstName()).isEqualTo(employee.getFirstName());
+        assertThat(savedEmployee.getLastName()).isEqualTo(employee.getLastName());
+        assertThat(savedEmployee.getDateOfBirth()).isEqualTo(employee.getDateOfBirth());
     }
 }
