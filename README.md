@@ -16,6 +16,7 @@ Viktigste teknologier og rammeverk som benyttes i applikasjonen:
 - [JUnit](junit.org)
 - [Mockito](http://site.mockito.org/)
 - [Maven](https://maven.apache.org/)
+- [H2 DB](http://www.h2database.com/html/main.html)
 - [Flyway](https://flywaydb.org/)
 ---
 
@@ -48,6 +49,7 @@ For continuous integration bygges applikasjonen på  [Travis.](https://travis-ci
 
 
 Flyway benyttes for databaseversjonering.
+
 ---
 
 ## Konfigurasjon
